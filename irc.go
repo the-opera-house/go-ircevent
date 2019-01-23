@@ -597,7 +597,7 @@ func IRC(nick, user string) *Connection {
 		Log:         log.New(os.Stdout, "", log.LstdFlags),
 		end:         make(chan struct{}),
 		Version:     VERSION,
-		KeepAlive:   4 * time.Minute,
+		KeepAlive:   20 * time.Minute,
 		Timeout:     1 * time.Minute,
 		PingFreq:    9999 * time.Minute,
 		SASLMech:    "PLAIN",
