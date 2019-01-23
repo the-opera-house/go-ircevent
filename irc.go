@@ -191,7 +191,7 @@ func (irc *Connection) writeLoop() {
 // to keep the connection alive. To be used as a goroutine.
 func (irc *Connection) pingLoop() {
 	defer irc.Done()
-	ticker := time.NewTicker(1 * time.Minute) // Tick every minute for monitoring
+	ticker := time.NewTicker(9999 * time.Minute) // Tick every minute for monitoring
 	ticker2 := time.NewTicker(irc.PingFreq)   // Tick at the ping frequency.
 	for {
 		select {
@@ -599,7 +599,7 @@ func IRC(nick, user string) *Connection {
 		Version:     VERSION,
 		KeepAlive:   4 * time.Minute,
 		Timeout:     1 * time.Minute,
-		PingFreq:    15 * time.Minute,
+		PingFreq:    9999 * time.Minute,
 		SASLMech:    "PLAIN",
 		QuitMessage: "",
 	}
